@@ -497,6 +497,17 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   system_progress = 0.75
 
+  korus_ver = GetBuildProp("ro.korus.build.version", OPTIONS.info_dict)
+  android_ver = GetBuildProp("ro.build.version.release", OPTIONS.info_dict)
+  security = GetBuildProp("ro.build.version.security_patch", OPTIONS.info_dict)
+
+  script.Print(" ")
+  script.Print("Korus-Project Version: %s"%(korus_ver))
+  script.Print("Android Version: %s"%(android_ver))
+  script.Print("Security Patch Date: %s"%(security))
+  script.Print(" ")
+  script.Print(" ")
+
   if OPTIONS.wipe_user_data:
     system_progress -= 0.1
   if HasVendorPartition(input_zip):
