@@ -139,7 +139,6 @@ function check_product()
     fi
     if (echo -n $1 | grep -q -e "^korus_") ; then
         KORUS_BUILD=$(echo -n $1 | sed -e 's/^korus_//g')
-        export BUILD_NUMBER=$( (date +%s%N ; echo $KORUS_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10 )
     else
         KORUS_BUILD=
     fi
